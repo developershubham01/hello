@@ -1,4 +1,678 @@
-hhhh 
-ttt
-hhhhhhh
-hhhhhbbb
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon · modern landing page</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------------------------
+           CSS reset & global styles
+        ---------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #fbfcfe;
+            color: #1e293b;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* inter font fallback (no need extra download) */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ---------------------------
+           header & navigation
+        ---------------------------- */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .nav-links a {
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #2563eb;
+            color: #2563eb;
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        /* ---------------------------
+           hero section
+        ---------------------------- */
+        .hero {
+            padding: 5rem 0 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 400px;
+        }
+
+        .hero-content .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            border: 1px solid #b8e1ff;
+        }
+
+        .hero-content h1 {
+            font-size: 3.4rem;
+            margin-bottom: 1.2rem;
+            color: #0f172a;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1 1 350px;
+            background: linear-gradient(145deg, #dbeafe, #ede9fe);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.1);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .hero-image i {
+            font-size: 12rem;
+            color: #2563eb;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* ---------------------------
+           companies / social proof
+        ---------------------------- */
+        .companies {
+            padding: 2.5rem 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 4rem;
+        }
+
+        .companies p {
+            text-align: center;
+            color: #64748b;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .company-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            color: #94a3b8;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .company-logos span {
+            font-size: 1.4rem;
+            transition: color 0.2s;
+        }
+
+        .company-logos span:hover {
+            color: #2563eb;
+        }
+
+        /* ---------------------------
+           features section
+        ---------------------------- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #64748b;
+            max-width: 650px;
+            margin: 0 auto 3.5rem;
+            font-size: 1.2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem 1.8rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transition: all 0.25s;
+            border: 1px solid #f1f5f9;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.02);
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.04);
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            color: #2563eb;
+            margin-bottom: 1.3rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .feature-card p {
+            color: #475569;
+        }
+
+        /* ---------------------------
+           cta / newsletter (js interact)
+        ---------------------------- */
+        .cta {
+            background: linear-gradient(120deg, #1e293b, #0f172a);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 48px;
+            margin: 4rem 0;
+            text-align: center;
+            box-shadow: 0 25px 40px -10px #0f172a40;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta p {
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.2rem;
+        }
+
+        .newsletter-box {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .newsletter-box input {
+            flex: 1 1 260px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1rem;
+            background: #334155;
+            color: white;
+            border: 1px solid #475569;
+            transition: 0.2s;
+        }
+
+        .newsletter-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .newsletter-box input:focus {
+            outline: none;
+            border-color: #60a5fa;
+            background: #1e293b;
+        }
+
+        .newsletter-box button {
+            padding: 1rem 2.2rem;
+            border-radius: 60px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .newsletter-box button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        #feedback-message {
+            margin-top: 1.4rem;
+            font-weight: 500;
+            min-height: 2rem;
+            color: #bef264;
+        }
+
+        /* ---------------------------
+           footer
+        ---------------------------- */
+        footer {
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 2.8rem 0;
+            margin-top: 3rem;
+            color: #334155;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #475569;
+        }
+
+        .footer-col a:hover {
+            color: #2563eb;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+            color: #64748b;
+        }
+
+        .social-icons i:hover {
+            color: #2563eb;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 0.7rem; }
+            .nav-links { gap: 1.5rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-image i { font-size: 9rem; }
+            .section-title { font-size: 2rem; }
+            .footer-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- header & navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">horizon.</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#cta">Connect</a>
+                <a href="#">Pricing</a>
+                <a href="#">About</a>
+            </div>
+            <div>
+                <a href="#" class="btn btn-outline" style="margin-right: 0.5rem;">Sign in</a>
+                <a href="#" class="btn btn-primary">Get started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- HERO section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge"><i class="fas fa-bolt" style="margin-right: 4px;"></i> launch season 2025</span>
+                <h1>Craft digital experiences that shine.</h1>
+                <p>Build fast, responsive landing pages with horizon. Modern stack, zero complexity — just pure creative control.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-rocket" style="margin-right: 8px;"></i>Start free trial</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-play" style="margin-right: 8px;"></i>Live demo</a>
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 1.8rem; color: #64748b;"><i class="fas fa-check-circle" style="color: #2563eb;"></i> No credit card required —</p>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-cloud-moon"></i>
+            </div>
+        </section>
+
+        <!-- social proof / companies -->
+        <div class="companies">
+            <p>trusted by innovative teams</p>
+            <div class="company-logos">
+                <span><i class="fab fa-microsoft"></i> microsoft</span>
+                <span><i class="fab fa-google"></i> google</span>
+                <span><i class="fab fa-figma"></i> figma</span>
+                <span><i class="fab fa-airbnb"></i> airbnb</span>
+                <span><i class="fab fa-amazon"></i> amazon</span>
+            </div>
+        </div>
+
+        <!-- FEATURES section (id used for nav) -->
+        <section id="features">
+            <h2 class="section-title">Designed for speed & simplicity</h2>
+            <p class="section-sub">Everything you need to build a stunning presence — all in one single page.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Lightning fast</h3>
+                    <p>Pure vanilla code. No bloated frameworks, just pure HTML, CSS, JS – instant load.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Fully responsive</h3>
+                    <p>Looks perfect on any device, from 4k displays to tiny smartphones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Customizable</h3>
+                    <p>Clean, minimal design that you can adapt with your own colors and fonts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Conversion ready</h3>
+                    <p>Built-in newsletter block, CTA and smooth scroll – optimized for engagement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Privacy first</h3>
+                    <p>No external trackers. Your users' data stays yours.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-code"></i></div>
+                    <h3>Clean code</h3>
+                    <p>Well commented, semantic and easy to read for developers of any level.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Newsletter section with JS interaction (id used for nav) -->
+        <section id="cta" class="cta">
+            <h2>Stay in the loop.</h2>
+            <p>Join 8,500+ designers & developers – get monthly product updates and resources.</p>
+            <div class="newsletter-box">
+                <input type="email" id="emailInput" placeholder="Enter your email" aria-label="Email address">
+                <button id="subscribeBtn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+            </div>
+            <!-- dynamic feedback message will appear here -->
+            <div id="feedback-message"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <span class="footer-logo">horizon.</span>
+                    <p style="margin-top: 1rem; max-width: 280px; color: #475569;">Crafting tomorrow's web experiences, today. </p>
+                    <div class="social-icons" style="margin-top: 1.5rem;">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#">Features</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Integrations</a>
+                        <a href="#">Changelog</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <a href="#">Docs</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Support</a>
+                        <a href="#">Status</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Legal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Horizon Labs. All rights reserved. Made with vanilla everything.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT (one page, vanilla JS) -->
+    <script>
+        (function() {
+            "use strict";
+
+            // ----- NEWSLETTER / CTA dynamic interaction -----
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            const emailInput = document.getElementById('emailInput');
+            const feedbackEl = document.getElementById('feedback-message');
+
+            // helper: validate email (very basic)
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function handleSubscription(e) {
+                e.preventDefault();  // avoid any page jump
+
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    feedbackEl.innerHTML = '<span style="color:#fca5a5;"><i class="fas fa-exclamation-triangle"></i> Email cannot be empty.</span>';
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    feedbackEl.innerHTML = '<span style="color:#fde047;"><i class="fas fa-exclamation-circle"></i> Please enter a valid email address.</span>';
+                    return;
+                }
+
+                // SUCCESS – show confirmation message and reset input
+                feedbackEl.innerHTML = '<span style="color:#bef264;"><i class="fas fa-check-circle"></i> Thanks! You\'re now on the waitlist.</span>';
+                emailInput.value = '';
+
+                // Optional: remove message after 6 seconds
+                setTimeout(() => {
+                    if (feedbackEl.innerHTML.includes('Thanks')) {
+                        feedbackEl.innerHTML = '';
+                    }
+                }, 6000);
+            }
+
+            // add event listener to button
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', handleSubscription);
+            }
+
+            // press Enter in input field triggers click on subscribeBtn
+            if (emailInput) {
+                emailInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (subscribeBtn) {
+                            subscribeBtn.click();
+                        }
+                    }
+                });
+            }
+
+            // ----- extra micro-interaction: mobile menu could be here (not needed but adds smoothness) -----
+            // smooth scroll for anchor links (optional enhancement)
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === "#" || href === "") return;
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // hover effect on company logos (purely cosmetic, no action needed)
+        })();
+    </script>
+
+    <!-- subtle note: everything in one page – no extra dependencies -->
+</body>
+</html>
