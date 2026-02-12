@@ -1,7 +1,5 @@
 # Horizon · single‑file landing page
 
-![Horizon preview](https://landingpage-kappa-eight-38.vercel.app/)
-
 **Horizon** is a modern, fully responsive landing page built with **vanilla HTML, CSS, and JavaScript** — all in one single HTML file.  
 It’s designed for speed, simplicity, and easy customization. No frameworks, no build step, no dependencies.
 
